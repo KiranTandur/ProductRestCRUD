@@ -1,13 +1,14 @@
 package com.spring.test.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
-
-import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.test.dto.BasicConfiguration;
 import com.spring.test.entity.Product;
-import com.spring.test.exception.ErrorMessage;
 import com.spring.test.service.ProductService;
 
 @RestController
@@ -31,6 +32,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductService service;
+	
+	@Autowired
+	private BasicConfiguration basicConfiguration;
 	
 	@GetMapping("/products")
 	public List<Product> list() {
@@ -80,6 +84,38 @@ public class ProductController {
 	public void deleteProduct(@PathVariable Integer id) {
 		service.deleteProductById(id);
 	}
+	
+	
+	/**
+	 * Below is the code for Spring Boot Profiles and Value Annotation
+	 */
+	
+	@Value("${basic.message}")
+	private String grretingMessage;
+	
+	@Value("${basic.hi : Default Value Popping up}")
+	private String defaultValue;
+	
+	@Value("${basic.list.values}")
+	private List<String> listValues;
+		
+	@Value("#{${dbvalues}}")
+	private Map<String,String> mapDbValues;
+	
+	@GetMapping("/testProfileConfiguration")
+	public Map<String, Object> checkDynamicConfiguration(){
+		Map<String, Object> map = new HashMap<>();
+		map.put("message",basicConfiguration.getMessage());
+		map.put("number",basicConfiguration.getNumber());
+		map.put("value",basicConfiguration.isValue());
+		return map;
+	}
+	
+	@GetMapping("/welcome")
+	public String getGreetingMessage() {
+		return grretingMessage+" : "+defaultValue+" : List :"+listValues+" : Config Map DB Vaues : "+mapDbValues;
+	}
+	
 	
 	
 	
