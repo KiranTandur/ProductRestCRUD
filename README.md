@@ -1,5 +1,5 @@
 # ProductRestCRUD
-Simple CRUD Application using Spring Boot and MySQL Database connectivity. Also I have implemented code using many annotations along with exception handling, i,e @ControllerAdvice. And have added spring @Value annotation based code.
+Simple CRUD Application using Spring Boot and MySQL Database connectivity. Also I have implemented code using many annotations along with exception handling, i,e @ControllerAdvice. And have added spring @Value annotation based code. Adding to that also , have added code for JPA Derived Queries Implementation as well.
 
 Below is the Create table script for product table
 
