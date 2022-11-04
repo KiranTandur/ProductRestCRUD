@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.test.entity.Product;
-import com.spring.test.exception.DataNotFoundException;
+import com.spring.test.exception.DataNotFoundExceptionNew;
 import com.spring.test.exception.ErrorMessage;
 import com.spring.test.repository.ProductRepository;
 
@@ -23,9 +23,6 @@ public class ProductService {
 	}
 	
 	public void saveProduct(Product product) {
-		/*if(product.getName() == null || product.getName().isEmpty()) {
-			//throw new InvalidInputException("601", "Please enter valid name");
-		}*/
 			repository.save(product);
 	}
 	
@@ -39,7 +36,7 @@ public class ProductService {
 		System.out.println("<000000Inside getOroduct ))))00000");
 		if(!product.isPresent()) {
 			System.out.println("<000000Inside getOroduct ))))00000");
-			throw new DataNotFoundException("Id : "+id+" is not Found In DB");
+			throw new DataNotFoundExceptionNew("Id : "+id+" is not Found In DB");
 		}
 		return product.get(); 
 	}
@@ -86,9 +83,31 @@ public class ProductService {
 	public List<Product> listProductByPriceLessThan(float price){
 		 List<Product> productList = repository.findByPriceLessThan(price);
 		if(productList.isEmpty()) {
-			throw new DataNotFoundException("Products Not Found for the Price : "+price);
+			throw new DataNotFoundExceptionNew("Products Not Found for the Price : "+price);
 		}
 		return productList;
+	}
+	
+	/**
+	 * Below code is to define and using JPQL and Native query 
+	 * @Query Implementation
+	 */
+	
+	public List<Product> listAllProdcutUsingJPQLQuery(){
+		return repository.getAllProduct();
+		
+	}
+	
+	public List<Product> getProductByName(String name){
+		return repository.getProductByName(name);
+		
+	}
+	
+	
+	//This is Native query. As we use in MySql
+	public List<Product> listAllProdcutUsingNativeQuery(){
+		return repository.getProductsUsingNativeQuery();
+		
 	}
 	
 }

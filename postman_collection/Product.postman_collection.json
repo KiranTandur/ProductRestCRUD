@@ -279,7 +279,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8137/shop/byPriceLessThan/70000",
+					"raw": "http://localhost:8137/shop/byPriceLessThan/10000",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -288,7 +288,27 @@
 					"path": [
 						"shop",
 						"byPriceLessThan",
-						"70000"
+						"10000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jpa Derived Query || Fetch Products Using Native Quey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/getAllProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"getAllProducts"
 					]
 				}
 			},

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.stream.Collector;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -132,6 +134,41 @@ public class ProductController {
 		return service.listProductByPriceLessThan(price);
 	}
 	
+	/**
+	 * Below code is for Native query definition 
+	 * @Query Implementation
+	 */
+	
+	@GetMapping("/getAllProducts")
+	public List<Product> getAllProductsUsingNativeQuery() {
+		//return service.listAllProdcutUsingNativeQuery();
+		System.out.println("<--- Below Result Using JPQL Query 1 --->");
+		List<Product> allProducts = service.listAllProdcutUsingJPQLQuery();
+		allProducts.forEach(product->{
+			System.out.println(product);
+		});
+		
+		System.out.println("<-------------------------------------------->");
+		System.out.println("!! Below Result Using JPQL Query 2 with where clause !!");
+		
+		List<Product> oneProduct = service.getProductByName("iPhone");
+		oneProduct.forEach(p->{
+			System.out.println(p);
+		});
+		
+		
+		//Native Query , as we use in MySql
+		System.out.println("<-------------------------------------------->");
+		System.out.println("<!! Below Result Using Native Query !!");
+		
+		List<Product> nativeProduct = service.listAllProdcutUsingNativeQuery();
+		nativeProduct.forEach(p->{
+			System.out.println(p);
+		});
+		
+										
+		return allProducts;
+	}
 	
 	/**
 	 * Below is the code for Spring Boot Profiles and Value Annotation

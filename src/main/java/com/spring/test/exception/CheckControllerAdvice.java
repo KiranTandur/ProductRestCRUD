@@ -39,8 +39,8 @@ public class CheckControllerAdvice extends ResponseEntityExceptionHandler{
 	
 	@ResponseBody
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	@ExceptionHandler(DataNotFoundException.class)
-	public ResponseDto dataNotFounfException(DataNotFoundException dataNotFounfException){
+	@ExceptionHandler(DataNotFoundExceptionNew.class)
+	public ResponseDto dataNotFounfException(DataNotFoundExceptionNew dataNotFounfException){
 		System.out.println("Coming inside");
 		ResponseDto response1 = new ResponseDto();
 		response1.setCode("404");
