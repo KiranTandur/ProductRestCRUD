@@ -84,7 +84,11 @@ public class ProductService {
 	}
 	
 	public List<Product> listProductByPriceLessThan(float price){
-		return repository.findByPriceLessThan(price);
+		 List<Product> productList = repository.findByPriceLessThan(price);
+		if(productList.isEmpty()) {
+			throw new DataNotFoundException("Products Not Found for the Price : "+price);
+		}
+		return productList;
 	}
 	
 }
