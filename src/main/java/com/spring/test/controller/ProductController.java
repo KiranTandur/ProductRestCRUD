@@ -85,6 +85,49 @@ public class ProductController {
 		service.deleteProductById(id);
 	}
 	
+	/**
+	 * Below code is to implement Spring Derived Queries
+	 * https://www.youtube.com/watch?v=QeRCW28jhFY&ab_channel=LearnCodeWithDurgesh
+	 * 
+	 * https://www.baeldung.com/spring-data-derived-queries
+	 */
+	
+	@GetMapping("/byName/{name}")
+	public List<Product> getProductByName(@PathVariable String name) {
+		return service.listProductByName(name);
+	}
+	
+	@GetMapping("/byNameIs/{name}")
+	public List<Product> getProductByNameIs(@PathVariable String name) {
+		return service.listProductByNameIs(name);
+	}
+	
+	@GetMapping("/byNameEquals/{name}")
+	public List<Product> getProductByNameEquals(@PathVariable String name) {
+		return service.listProductByNameEquals(name);
+	}
+	
+	@GetMapping("/byNameIsNot/{name}")
+	public List<Product> getProductByNameIsNot(@PathVariable String name) {
+		return service.listProductByNameIsNot(name);
+	}
+	
+	@GetMapping("/byNameStartsWith/{name}")
+	public List<Product> getProductByNameStartsWith(@PathVariable String name) {
+		return service.listProductByNameStartsWith(name);
+	}
+	
+	@GetMapping("/byNameContaining/{name}")
+	public List<Product> getProductByNameContaining(@PathVariable String name) {
+		return service.listProductByNameContaining(name);
+	}
+	
+	@GetMapping("/byNameLike/{name}")
+	public List<Product> getProductByNameLike(@PathVariable String name) {
+		return service.listProductByNameLike(name);
+	}
+	
+	
 	
 	/**
 	 * Below is the code for Spring Boot Profiles and Value Annotation
