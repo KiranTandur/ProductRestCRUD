@@ -83,4 +83,8 @@ public class ProductService {
 		return repository.findByNameLike(likePattern);
 	}
 	
+	public List<Product> listProductByPriceLessThan(float price){
+		return repository.findByPriceLessThan(price);
+	}
+	
 }

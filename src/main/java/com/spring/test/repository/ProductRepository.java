@@ -19,6 +19,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	public List<Product> findByNameContaining(String infix);
 	
 	public List<Product> findByNameLike(String infix);
+	
+	public List<Product> findByPriceLessThan(float infix);
 
 
 }

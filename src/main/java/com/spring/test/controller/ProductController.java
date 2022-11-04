@@ -127,6 +127,11 @@ public class ProductController {
 		return service.listProductByNameLike(name);
 	}
 	
+	@GetMapping("/byPriceLessThan/{price}")
+	public List<Product> getProductByNameLike(@PathVariable float price) {
+		return service.listProductByPriceLessThan(price);
+	}
+	
 	
 	
 	/**

@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "1a2a16ec-f81e-41c7-932c-9471d02dab9a",
+		"name": "Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get List Of Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":13,\r\n    \"name\":\"tre\",\r\n    \"price\":10000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8137/shop/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/products/55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"products",
+						"55"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product By Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":24,\r\n    \"name\":\"Samsung New S\",\r\n    \"price\":22000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8137/shop/products/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/products/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"products",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jpa Derived Query || Fetch Product By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/byName/MicroMax",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"byName",
+						"MicroMax"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jpa Derived Query || Fetch Product By NameIs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/byNameIs/iPhone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"byNameIs",
+						"iPhone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jpa Derived Query || Fetch Product By NameEquals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/byNameEquals/onePlus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"byNameEquals",
+						"onePlus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jpa Derived Query || Fetch Product By NameIsNot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/byNameIsNot/MicroMax",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"byNameIsNot",
+						"MicroMax"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jpa Derived Query || Fetch Product By NameStartsWith",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/byNameStartsWith/M",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"byNameStartsWith",
+						"M"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jpa Derived Query || Fetch Product By NameContaining",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/byNameContaining/m",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"byNameContaining",
+						"m"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jpa Derived Query || Fetch Product By NameLike",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/byNameLike/M",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"byNameLike",
+						"M"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jpa Derived Query || Fetch Product By Price Less Than",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8137/shop/byPriceLessThan/70000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8137",
+					"path": [
+						"shop",
+						"byPriceLessThan",
+						"70000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
